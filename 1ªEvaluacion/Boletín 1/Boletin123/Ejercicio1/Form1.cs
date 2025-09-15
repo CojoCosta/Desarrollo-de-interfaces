@@ -12,6 +12,7 @@ namespace Ejercicio1
 {
     public partial class Form1 : Form
     {
+       
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +25,10 @@ namespace Ejercicio1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            int numero1 = int.Parse(texto1.Text);
+            int numero2 = int.Parse(texto2.Text);
+            int suma = numero1 + numero2;
+            resultado.Text = suma.ToString();           
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -34,12 +38,12 @@ namespace Ejercicio1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
         }
+        
     }
 }
