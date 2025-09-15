@@ -28,6 +28,7 @@
             int option = 0;
             do
             {
+                Boolean flag = false;
                 Console.WriteLine("1.- Año bisiesto:");
                 Console.WriteLine("2.- Suma de rango:");
                 Console.WriteLine("3.- Ambas opciones anteriores:");
@@ -55,6 +56,10 @@
                                 Console.WriteLine("El año {0} no es bisiesto", año);
                             }
                         }
+                        if (flag)
+                        {
+                            goto case 2;
+                        }
                         break;
                     case 2:
                         Console.WriteLine("Escribe un numero positivo menor que 10000: ");
@@ -72,9 +77,8 @@
                         }
                         break;
                     case 3:
+                        flag = true;
                         goto case 1;
-                        break;
-                        goto case 2;
                         break;
 
                     case 4:
