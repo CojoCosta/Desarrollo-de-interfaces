@@ -4,7 +4,23 @@
     {
         public static bool bisiesto(int año)
         {
-            return año % 4 == 0 && año % 400 == 0 && año % 100 != 0;
+            return año % 4 == 0 || (año % 400 == 0 && año % 100 == 0);
+        }
+        public static int? sumaRango(int n1, int n2)
+        {
+            if (n1 < n2)
+            {
+                int acu = n1;
+                for (int i = n1; i <= n2; i++)
+                {
+                    acu += i;
+                }
+                return acu;
+            }
+            else
+            {
+                return null;
+            }
         }
         static void Main(string[] args)
         {
@@ -19,9 +35,6 @@
                 option = int.Parse(Console.ReadLine());
                 switch (option)
                 {
-                    case 0:
-                        Console.WriteLine("");
-                        break;
                     case 1:
                         Console.WriteLine("Escribe un año: ");
                         Console.WriteLine("(Debe ser positivo y menor de 10000)");
@@ -33,10 +46,45 @@
                         }
                         else
                         {
-                            Console.WriteLine(bisiesto(año));
+                            if (bisiesto(año))
+                            {
+                                Console.WriteLine("El año {0} es bisiesto", año);
+                            }
+                            else
+                            {
+                                Console.WriteLine("El año {0} no es bisiesto", año);
+                            }
                         }
-
                         break;
+                    case 2:
+                        Console.WriteLine("Escribe un numero positivo menor que 10000: ");
+                        int num1 = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Escribe otro numero positivo menor que 10000: ");
+                        int num2 = int.Parse(Console.ReadLine());
+                        if (num1 <= 0 || num1 > 10000 && num2 <= 0 || num2 > 10000)
+                        {
+                            Console.WriteLine("Escriba un año valido");
+                            goto case 2;
+                        }
+                        else
+                        {
+                            Console.WriteLine("La suma de los numeros en {0} y {1} es: {2}",num1, num2, sumaRango(num1, num2));
+                        }
+                        break;
+                    case 3:
+                        goto case 1;
+                        break;
+                        goto case 2;
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Gracias por usar el programa.");
+                        break;
+
+                    default:
+                        Console.WriteLine("Elija una opcion entre 1 y 4");
+                        break;
+
                 }
             }
             while (option != 4);
