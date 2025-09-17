@@ -4,7 +4,7 @@
     {
         public static bool bisiesto(int año)//REvisar
         {
-            return (año % 4 == 0 && año % 100 != 0) || (año % 4 == 0 && año % 400 == 0 && año % 100 == 0);
+            return (año % 4 == 0 && año % 100 != 0) ||  año % 400 == 0  ;
         }
         public static int? sumaRango(int n1, int n2)
         {
