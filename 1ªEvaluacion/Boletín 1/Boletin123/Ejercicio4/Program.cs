@@ -2,9 +2,9 @@
 {
     internal class Program
     {
-        public static bool bisiesto(int año)
+        public static bool bisiesto(int año)//REvisar
         {
-            return año % 4 == 0 || (año % 400 == 0 && año % 100 == 0);
+            return (año % 4 == 0 && año % 100 != 0) || (año % 4 == 0 && año % 400 == 0 && año % 100 == 0);
         }
         public static int? sumaRango(int n1, int n2)
         {
@@ -28,7 +28,7 @@
             int option = 0;
             do
             {
-                Boolean flag = false;
+                bool flag = false;
                 Console.WriteLine("1.- Año bisiesto:");
                 Console.WriteLine("2.- Suma de rango:");
                 Console.WriteLine("3.- Ambas opciones anteriores:");
@@ -88,7 +88,6 @@
                     default:
                         Console.WriteLine("Elija una opcion entre 1 y 4");
                         break;
-
                 }
             }
             while (option != 4);
