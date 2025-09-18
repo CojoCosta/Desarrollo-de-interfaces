@@ -2,14 +2,14 @@
 {
     internal class Program
     {
-        static bool factorial(ref int numero)
+        static bool factorial(ref int numero)//TODO revisar
         {
             int acu = numero;
             for (int i = acu - 1; i > 0; i--)
             {
                 acu *= i;
             }
-            return numero < 0 || numero > 10 ? false : true;
+            return !(numero <= 0 || numero > 10);
 
         }
         static int numRandom(int min, int max)
@@ -29,7 +29,8 @@
 
         static void Main(string[] args)
         {
-            int a = 5;
+#if FACTORIAL
+            int a = 0;//TODO directivas compilación
             Console.WriteLine(factorial(ref a));
             dibujarAsteriscos();
             Console.ReadLine();

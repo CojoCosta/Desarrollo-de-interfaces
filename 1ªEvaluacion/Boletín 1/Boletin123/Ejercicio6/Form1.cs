@@ -16,5 +16,24 @@ namespace Ejercicio6
         {
             InitializeComponent();
         }
+      
+        private void button1_Click(object sender, EventArgs e)
+        {   
+            DialogResult yesNo = MessageBox.Show("Quieres poner \"" + texto1.Text.Trim() + "\" de titulo¿?", "CAMBIO DE TITULO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (yesNo == DialogResult.Yes)
+            {
+                this.Text = texto1.Text.Trim();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
