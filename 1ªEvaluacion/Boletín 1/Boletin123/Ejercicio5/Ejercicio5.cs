@@ -1,6 +1,7 @@
-﻿namespace Ejercicio5
+﻿#define OPCION
+namespace Ejercicio5
 {
-    internal class Program
+    internal class Ejercicio5
     {
         static bool factorial(ref int numero)//TODO revisar
         {
@@ -12,12 +13,14 @@
             return !(numero <= 0 || numero > 10);
 
         }
+
+
         static int numRandom(int min, int max)
         {
             Random rd = new Random();
             return rd.Next(min, max);
         }
-        
+
         static void dibujarAsteriscos(int numAsteriscos = 10)
         {
             for (int i = 0; i < numAsteriscos; i++)
@@ -27,15 +30,16 @@
             }
         }
 
+
         static void Main(string[] args)
         {
-#if FACTORIAL
             int a = 0;//TODO directivas compilación
+#if OPCION
             Console.WriteLine(factorial(ref a));
+#else
             dibujarAsteriscos();
-            Console.ReadLine();
-
-
+#endif
+            Console.ReadLine();       
         }
     }
 }

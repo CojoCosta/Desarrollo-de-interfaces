@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ejercicio1
+namespace Ejercicio6
 {
-    internal static class Program
+    internal static class Ejercicio6
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.

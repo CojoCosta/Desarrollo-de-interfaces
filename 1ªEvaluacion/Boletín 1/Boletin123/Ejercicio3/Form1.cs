@@ -1,4 +1,5 @@
-﻿using System;
+﻿#define prueba
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,7 @@ namespace Ejercicio3
         {
             return (rd.Next(min,max), rd.Next(min,max), rd.Next(min,max));
         }
+
         private void jugar_Click(object sender, EventArgs e)
         {
             creditoN -= 2;
@@ -42,13 +44,17 @@ namespace Ejercicio3
                 premioN = 20;
                 premio.Text = premioN.ToString() + "€";
                 creditoN += premioN;
-                
             }else if(n1 == n2 || n1 == n3 || n2 == n3)
             {
+#if prueba
+                premioN = -5;
+                premio.Text = premioN.ToString() + "€";
+                creditoN += premioN;
+#else
                 premioN = 5;
                 premio.Text = premioN.ToString() + "€";
                 creditoN += premioN;
-                
+#endif
             }
             else 
             {

@@ -1,6 +1,6 @@
 ﻿namespace Ejercicio4
 {
-    internal class Program
+    internal class Ejercicio4
     {
         public static bool bisiesto(int año)//REvisar
         {
