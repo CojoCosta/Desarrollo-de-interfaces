@@ -6,7 +6,59 @@ using System.Threading.Tasks;
 
 namespace Ejercicio7
 {
-    internal class Astro
+    public abstract class Astro
     {
+        private String nombre
+        {
+            set
+            {
+                nombre = String.Format("\"%s\"", value.ToUpper());
+            }
+            get
+            {
+                return nombre;
+            }
+        }
+        private double radio
+        {
+            set
+            {
+                radio = value > 0 ? value : throw new ArgumentException(); ;
+            }
+            get
+            {
+                return radio;
+            }
+        }
+
+
+        public Astro(String nombre, double radio)
+        {
+            this.nombre = nombre;
+            this.radio = radio;
+        }
+        public Astro()
+        {
+            this.nombre = "Tierra";
+            this.radio = 6378;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Astro)
+            {
+                return this.Equals(obj);
+            }
+            else if (obj is String)
+            {
+                return this.nombre.Equals(obj);
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
     }
 }
