@@ -6,11 +6,28 @@ namespace Ejercicio5
         static bool factorial(ref int numero)//TODO revisar
         {
             int acu = numero;
-            for (int i = acu - 1; i > 0; i--)
+            if (numero >= 0 && numero <= 10)
             {
-                acu *= i;
+
+                if (numero == 0)
+                {
+                    acu = 1;
+                }
+                else
+                {
+                    for (int i = acu - 1; i > 0; i--)
+                    {
+                        acu *= i;
+                    }
+                }
+                    return true;
             }
-            return !(numero <= 0 || numero > 10);
+            else
+            {
+                return false;
+            }
+
+
 
         }
 
@@ -25,8 +42,8 @@ namespace Ejercicio5
         {
             for (int i = 0; i < numAsteriscos; i++)
             {
-                    Console.SetCursorPosition(numRandom(1, 21), numRandom(1, 11));
-                    Console.WriteLine("*");
+                Console.SetCursorPosition(numRandom(1, 21), numRandom(1, 11));
+                Console.WriteLine("*");
             }
         }
 
@@ -39,7 +56,7 @@ namespace Ejercicio5
 #else
             dibujarAsteriscos();
 #endif
-            Console.ReadLine();       
+            Console.ReadLine();
         }
     }
 }

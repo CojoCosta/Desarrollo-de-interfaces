@@ -10,20 +10,20 @@ namespace Ejercicio7
     public class Planeta : Astro, ITerraformable
 
     {
-        private bool gaseoso;
-        public int satelites;
+        private bool Gaseoso { set; get; }
+        private int satelites;
 
-        public bool Gaseoso
-        {
-            set
-            {
-                gaseoso = value;
-            }
-            get
-            {
-                return gaseoso;
-            }
-        }
+        //public bool Gaseoso
+        //{
+        //    set
+        //    {
+        //        gaseoso = value;
+        //    }
+        //    get
+        //    {
+        //        return gaseoso;
+        //    }
+        //}
         public int Satelites
         {
             set
@@ -38,18 +38,18 @@ namespace Ejercicio7
 
         public Planeta(String nombre, double radio, bool gaseoso, int satelites) : base(nombre, radio)
         {
-            this.gaseoso = gaseoso;
+            this.Gaseoso = gaseoso;
             this.satelites = satelites;
         }
-        public Planeta() : base("", 0)
+        public Planeta() : base("", 0)//T
         {
-            this.gaseoso = false;
+            this.Gaseoso = false;
             this.satelites = 0;
         }
 
         public bool esHabitable()
         {
-            if (!this.gaseoso && (base.Radio >= 2000 && base.Radio <= 8000))
+            if (!this.Gaseoso && (base.Radio >= 2000 && base.Radio <= 8000))
             {
                 return true;
             }
@@ -60,7 +60,7 @@ namespace Ejercicio7
         }
         public override string ToString()
         {
-            return String.Format("%10s %4d %.2f", base.Nombre, satelites, base.Radio);
+            return String.Format("{0,10} {1,4} {0,8:F2}", base.Nombre, satelites, base.Radio);
         }
 
         public static Planeta operator ++(Planeta p1)
