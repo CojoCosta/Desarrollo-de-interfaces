@@ -8,7 +8,9 @@ namespace Ejercicio7
 {
     public abstract class Astro
     {
-        private String nombre
+        private String nombre;
+        private double radio;
+        public String Nombre
         {
             set
             {
@@ -19,7 +21,7 @@ namespace Ejercicio7
                 return nombre;
             }
         }
-        private double radio
+        public double Radio
         {
             set
             {
@@ -57,8 +59,6 @@ namespace Ejercicio7
             {
                 return false;
             }
-
         }
-
     }
 }

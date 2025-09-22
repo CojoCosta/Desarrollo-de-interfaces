@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ejercicio7
 {
-    internal class ITerraformable
+    public interface ITerraformable
     {
+        public bool esHabitable();
     }
 }
