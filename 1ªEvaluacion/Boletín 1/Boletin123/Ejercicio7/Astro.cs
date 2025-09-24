@@ -14,7 +14,7 @@ namespace Ejercicio7
         {
             set
             {
-                nombre = value.ToUpper();//TODO separar set/get
+                nombre = value.ToUpper();
             }
             get
             {
@@ -43,13 +43,13 @@ namespace Ejercicio7
 
         public override bool Equals(object? obj)
         {
-            if (obj is Astro astro)//TODO comparar nombres
+            if (obj is Astro astro)
             {
                 return this.Nombre == astro.Nombre;
             }
             else if (obj is String str)
             {
-                return this.Nombre == str ;//TODO ==
+                return this.Nombre == str.ToUpper() ;
             }
             else
             {

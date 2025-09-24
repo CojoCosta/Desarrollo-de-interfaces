@@ -28,7 +28,7 @@ namespace Ejercicio7
             return numero;
         }
 
-        public static double pedirDecimal()
+        public static double pedirDouble()//mjor pedirDouble
         {
             double numero;
             do
@@ -49,25 +49,11 @@ namespace Ejercicio7
 
         public static bool siNo()
         {
-            do
-            {
-                int opcion;
-                Console.WriteLine("Sí: 1 || No: 2");
-                opcion = pedirEntero();
-                if (opcion == 1)
-                {
-                    return true;
-                }
-                else if (opcion == 2)
-                {
-                    return false;
-                }
-                else
-                {
-                    return flag = false;
-                    flag = false;
-                }
-            } while (!flag);
+            int opcion;
+            Console.WriteLine("Sí: 1 || No: cualquier valor");
+            opcion = pedirEntero();
+            return (opcion == 1);
+ 
         }
 
         public static void añadirPlaneta()
@@ -80,7 +66,7 @@ namespace Ejercicio7
             planeta1.Satelites = pedirEntero();
 
             Console.WriteLine("Cual es el radio del planeta¿?");
-            planeta1.Radio = pedirDecimal();
+            planeta1.Radio = pedirDouble();
 
             Console.WriteLine("Es gaseoso¿?(Sí: 1 || No: 2)");
             planeta1.Gaseoso = siNo();
@@ -94,9 +80,10 @@ namespace Ejercicio7
             Console.WriteLine("Cual es el nombre del cometa¿?");
             cometa1.Nombre = Console.ReadLine();
 
-            double radio;
             Console.WriteLine("Cual es el radio del cometa¿?");
-            radio = pedirDecimal();
+            cometa1.Radio = pedirDouble();
+
+            astros.Add(cometa1);
         }
 
         public static void mostraDatos()
@@ -106,55 +93,60 @@ namespace Ejercicio7
                 if (astros[i].GetType() == typeof(Planeta))
                 {
                     Console.WriteLine(astros[i].ToString());
-                    if (((Planeta)astros[i]).esHabitable())
-                    {
-                        Console.WriteLine("Es terraformable");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No es terraformable");
-                    }
+
                 }
                 else if (astros[i].GetType() == typeof(Cometa))
                 {
                     Console.WriteLine("Nombre: {0}", astros[i].Nombre);
                     Console.WriteLine("Radio: {0,4:F2}", astros[i].Radio);
-                    if (((Cometa)astros[i]).esHabitable())
-                    {
-                        Console.WriteLine("Es terraformable");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No es terraformable");
-                    }
+                }
+                if (((ITerraformable)astros[i]).esHabitable())
+                {
+                    Console.WriteLine("Es terraformable");
+                }
+                else
+                {
+                    Console.WriteLine("No es terraformable");
                 }
             }
         }
 
         public static void incrementaDecrementa()
         {
+            Planeta planeta2 = new Planeta();
             int n;
             Console.WriteLine("Nombre del planeta");
-            String nombre = Console.ReadLine();
-            Planeta p1 = new Planeta();
-            p1.Nombre = nombre;
-            if (astros.IndexOf((Astro)p1).GetType() == typeof(Planeta))
+            planeta2.Nombre = Console.ReadLine();
+            //Crea nuevo planeta solo con nombre
+            if (astros.IndexOf(planeta1).GetType() == typeof(Planeta) && 
+                astros.IndexOf(planeta1).Equals(planeta2.Nombre))
             {
-                do
+                Console.WriteLine("Quiere incrementar un sateite¿? (Sí: 1)");
+                if (siNo())
                 {
-                    Console.WriteLine("Quiere incrementar un sateite¿? (Sí: 1 || No: 2)");
-
+                    planeta1++;
                 }
-                while (true);
-                //astros.IndexOf((Astro)p1).
+                Console.WriteLine("Quiere decrementar un sateite¿? (Sí: 1)");
+                if (siNo())
+                {
+                    planeta1--;
+                }
             }
             else
             {
                 Console.WriteLine("Planeta no existente");
             }
+        }
 
-
-
+        public static void eliminarNoTerraformables() { //Todorevisar
+            for (int i = astros.Count -1; i >= 0; i--)
+            {
+                if (!((ITerraformable)astros[i]).esHabitable())
+                {
+                    astros.Remove(astros[i]);
+                } 
+            }
+            Console.WriteLine("Eliminados los no terraformables");
         }
 
         static void Main(string[] args)
@@ -162,8 +154,6 @@ namespace Ejercicio7
             int option = 0;
             do
             {
-
-
                 Console.WriteLine("1.- Añadir planeta.");
                 Console.WriteLine("2.- Añadir cometa.");
                 Console.WriteLine("3.- Mostrar datos.");
@@ -186,16 +176,15 @@ namespace Ejercicio7
 
                         break;
                     case 4:
-
+                        incrementaDecrementa();
                         break;
                     case 5:
-
+                        eliminarNoTerraformables();
                         break;
 
                     case 6:
                         Console.WriteLine("Gracias por usar el programa.");
                         break;
-
                 }
             }
             while (option != 6);
