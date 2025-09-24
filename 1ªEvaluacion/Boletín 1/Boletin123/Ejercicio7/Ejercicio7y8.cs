@@ -4,50 +4,86 @@ namespace Ejercicio7
 {
     public class Ejercicio7y8
     {
-            static Planeta planeta1;
-            static Cometa cometa1;
-            static List<Astro> astros = new List<Astro>();
-            static bool flag = true;
+        static Planeta planeta1;
+        static Cometa cometa1;
+        static List<Astro> astros = new List<Astro>();
+        static bool flag = true;
+
+        public static int pedirEntero()
+        {
+            int numero;
+            do
+            {
+                flag = int.TryParse(Console.ReadLine(), out numero);
+                if (numero > 0)
+                {
+                    return numero;
+                }
+                else
+                {
+                    flag = false;
+                    Console.WriteLine("Numero entero");
+                }
+            } while (!flag);
+            return numero;
+        }
+
+        public static double pedirDecimal()
+        {
+            double numero;
+            do
+            {
+                flag = double.TryParse(Console.ReadLine(), out numero);
+                if (numero > 0)
+                {
+                    return numero;
+                }
+                else
+                {
+                    flag = false;
+                    Console.WriteLine("Numero decimal");
+                }
+            } while (!flag);
+            return numero;
+        }
+
+        public static bool siNo()
+        {
+            do
+            {
+                int opcion;
+                Console.WriteLine("Sí: 1 || No: 2");
+                opcion = pedirEntero();
+                if (opcion == 1)
+                {
+                    return true;
+                }
+                else if (opcion == 2)
+                {
+                    return false;
+                }
+                else
+                {
+                    return flag = false;
+                    flag = false;
+                }
+            } while (!flag);
+        }
+
         public static void añadirPlaneta()
         {
             planeta1 = new Planeta();
             Console.WriteLine("Cual es el nombre del planeta¿?");
             planeta1.Nombre = Console.ReadLine();
 
-            do
-            {
-                double radio;
-                Console.WriteLine("Cual es el radio del planeta¿?");
-                flag = double.TryParse(Console.ReadLine(), out radio);
-                if (flag)
-                {
-                    planeta1.Radio = radio;
-                }
-                else
-                {
-                    Console.WriteLine("Eso no es un nº decimal, vuelve a intentarlo");
-                }
-            }
-            while (!flag);
+            Console.WriteLine("Cuantas lunas tiene¿?");
+            planeta1.Satelites = pedirEntero();
 
-            do
-            {
-                int lunas;
-                Console.WriteLine("Cuantas lunas tiene¿?");
-                flag = int.TryParse(Console.ReadLine(), out lunas);
-                if (flag)
-                {
-                    planeta1.Satelites = lunas;
-                }
-                else
-                {
-                    Console.WriteLine("Eso no es un nº entero, vuelve a intentarlo");
-                }
-            }
-            while (!flag);
-            astros.Add(planeta1);
-            Console.WriteLine("Es gaseoso¿?");
-            planeta1.Gaseoso = bool.Parse(Console.ReadLine());
+            Console.WriteLine("Cual es el radio del planeta¿?");
+            planeta1.Radio = pedirDecimal();
+
+            Console.WriteLine("Es gaseoso¿?(Sí: 1 || No: 2)");
+            planeta1.Gaseoso = siNo();
 
             astros.Add(planeta1);
         }
@@ -58,21 +94,67 @@ namespace Ejercicio7
             Console.WriteLine("Cual es el nombre del cometa¿?");
             cometa1.Nombre = Console.ReadLine();
 
-            do
+            double radio;
+            Console.WriteLine("Cual es el radio del cometa¿?");
+            radio = pedirDecimal();
+        }
+
+        public static void mostraDatos()
+        {
+            for (int i = 0; i < astros.Count; i++)
             {
-                double radio;
-                Console.WriteLine("Cual es el radio del cometa¿?");
-                flag = double.TryParse(Console.ReadLine(), out radio);
-                if (flag)
+                if (astros[i].GetType() == typeof(Planeta))
                 {
-                    cometa1.Radio = radio;
+                    Console.WriteLine(astros[i].ToString());
+                    if (((Planeta)astros[i]).esHabitable())
+                    {
+                        Console.WriteLine("Es terraformable");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No es terraformable");
+                    }
                 }
-                else
+                else if (astros[i].GetType() == typeof(Cometa))
                 {
-                    Console.WriteLine("Eso no es un nº decimal, vuelve a intentarlo");
+                    Console.WriteLine("Nombre: {0}", astros[i].Nombre);
+                    Console.WriteLine("Radio: {0,4:F2}", astros[i].Radio);
+                    if (((Cometa)astros[i]).esHabitable())
+                    {
+                        Console.WriteLine("Es terraformable");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No es terraformable");
+                    }
                 }
             }
-            while (!flag);
+        }
+
+        public static void incrementaDecrementa()
+        {
+            int n;
+            Console.WriteLine("Nombre del planeta");
+            String nombre = Console.ReadLine();
+            Planeta p1 = new Planeta();
+            p1.Nombre = nombre;
+            if (astros.IndexOf((Astro)p1).GetType() == typeof(Planeta))
+            {
+                do
+                {
+                    Console.WriteLine("Quiere incrementar un sateite¿? (Sí: 1 || No: 2)");
+
+                }
+                while (true);
+                //astros.IndexOf((Astro)p1).
+            }
+            else
+            {
+                Console.WriteLine("Planeta no existente");
+            }
+
+
+
         }
 
         static void Main(string[] args)
@@ -88,14 +170,8 @@ namespace Ejercicio7
                 Console.WriteLine("4.- Incrementa/Decrementa nº de satelites.");
                 Console.WriteLine("5.- Eliminar no terraformables.");
                 Console.WriteLine("6.- Salir");
-                try
-                {
-                    option = int.Parse(Console.ReadLine());
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Escribe un numero.");
-                }
+                option = pedirEntero();
+
                 switch (option)
                 {
                     case 1:
@@ -106,13 +182,7 @@ namespace Ejercicio7
                         añadirCometa();
                         break;
                     case 3:
-                        foreach (var astro in astros)
-                        {
-                            if (astro.)
-                            {
-
-                            }
-                        }
+                        mostraDatos();
 
                         break;
                     case 4:

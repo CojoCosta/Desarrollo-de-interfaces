@@ -14,11 +14,11 @@ namespace Ejercicio7
         {
             set
             {
-                nombre = String.Format("\"%s\"", value.ToUpper());//TODO separar set/get
+                nombre = value.ToUpper();//TODO separar set/get
             }
             get
             {
-                return nombre;
+                return String.Format("\"{0}\"", nombre);
             }
         }
         public double Radio
@@ -39,21 +39,17 @@ namespace Ejercicio7
             this.nombre = nombre;
             this.radio = radio;
         }
-        public Astro()//TODO llamar al otro ctor
-        {
-            this.nombre = "Tierra";
-            this.radio = 6378;
-        }
+        public Astro() : this("Tierra", 6378) { }
 
         public override bool Equals(object? obj)
         {
-            if (obj is Astro)//TODO comparar nombres
+            if (obj is Astro astro)//TODO comparar nombres
             {
-                return this.Equals(obj);
+                return this.Nombre == astro.Nombre;
             }
-            else if (obj is String)
+            else if (obj is String str)
             {
-                return this.nombre.Equals(obj);//TODO ==
+                return this.Nombre == str ;//TODO ==
             }
             else
             {
