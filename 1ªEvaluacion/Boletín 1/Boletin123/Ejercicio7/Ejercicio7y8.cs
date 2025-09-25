@@ -15,13 +15,9 @@ namespace Ejercicio7
             do
             {
                 flag = int.TryParse(Console.ReadLine(), out numero);
-                if (numero > 0)
+                return numero > 0 ? numero : 0;
+                if (!flag)
                 {
-                    return numero;
-                }
-                else
-                {
-                    flag = false;
                     Console.WriteLine("Numero entero");
                 }
             } while (!flag);
@@ -53,7 +49,7 @@ namespace Ejercicio7
             Console.WriteLine("Sí: 1 || No: cualquier valor");
             opcion = pedirEntero();
             return (opcion == 1);
- 
+
         }
 
         public static void añadirPlaneta()
@@ -118,33 +114,38 @@ namespace Ejercicio7
             Console.WriteLine("Nombre del planeta");
             planeta2.Nombre = Console.ReadLine();
             //Crea nuevo planeta solo con nombre
-            if (astros.IndexOf(planeta1).GetType() == typeof(Planeta) && 
-                astros.IndexOf(planeta1).Equals(planeta2.Nombre))
+            for (int i = 0; i < astros.Count; i++) //comprobar indice y luego nombre y demas
             {
-                Console.WriteLine("Quiere incrementar un sateite¿? (Sí: 1)");
-                if (siNo())
+                if (astros.IndexOf(planeta1) == i)
                 {
-                    planeta1++;
+                    if (astros[i].Nombre == planeta2.Nombre && astros[i].GetType() == typeof(Planeta))
+                    {
+                        Console.WriteLine("Pulse 1 para incrementar un satelite o cualquier tecla para decementar");
+                        if (siNo())
+                        {
+                            planeta1++;
+                        }
+                        else
+                        {
+                            planeta1--;
+                        }
+                    }
                 }
-                Console.WriteLine("Quiere decrementar un sateite¿? (Sí: 1)");
-                if (siNo())
+                else
                 {
-                    planeta1--;
+                    Console.WriteLine("Planeta no existente");
                 }
-            }
-            else
-            {
-                Console.WriteLine("Planeta no existente");
             }
         }
 
-        public static void eliminarNoTerraformables() { //Todorevisar
-            for (int i = astros.Count -1; i >= 0; i--)
+        public static void eliminarNoTerraformables()
+        { //Todorevisar
+            for (int i = astros.Count - 1; i >= 0; i--)
             {
                 if (!((ITerraformable)astros[i]).esHabitable())
                 {
                     astros.Remove(astros[i]);
-                } 
+                }
             }
             Console.WriteLine("Eliminados los no terraformables");
         }
