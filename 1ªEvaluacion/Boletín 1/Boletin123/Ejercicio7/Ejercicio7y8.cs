@@ -15,16 +15,20 @@ namespace Ejercicio7
             do
             {
                 flag = int.TryParse(Console.ReadLine(), out numero);
-                return numero > 0 ? numero : 0;
-                if (!flag)
+                if (numero > 0)
                 {
+                    return numero;
+                }
+                else
+                {
+                    flag = false;
                     Console.WriteLine("Numero entero");
                 }
             } while (!flag);
             return numero;
         }
 
-        public static double pedirDouble()//mjor pedirDouble
+        public static double pedirDouble()
         {
             double numero;
             do
@@ -113,8 +117,7 @@ namespace Ejercicio7
             int n;
             Console.WriteLine("Nombre del planeta");
             planeta2.Nombre = Console.ReadLine();
-            //Crea nuevo planeta solo con nombre
-            for (int i = 0; i < astros.Count; i++) //comprobar indice y luego nombre y demas
+            for (int i = 0; i < astros.Count; i++)
             {
                 if (astros.IndexOf(planeta1) == i)
                 {
@@ -139,7 +142,7 @@ namespace Ejercicio7
         }
 
         public static void eliminarNoTerraformables()
-        { //Todorevisar
+        {
             for (int i = astros.Count - 1; i >= 0; i--)
             {
                 if (!((ITerraformable)astros[i]).esHabitable())
