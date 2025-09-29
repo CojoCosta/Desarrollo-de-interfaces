@@ -15,7 +15,7 @@ namespace Ejercicio9
         {
             set
             {
-                memoriaRam = value >= 0 ? value : 100;
+                memoriaRam = value >= 0 ? value : 16;
             }
 
             get
@@ -33,16 +33,20 @@ namespace Ejercicio9
                 for (int i = 0; i < bytes.Length; i++)
                 {
                     if (!Byte.TryParse(bytes[i], out _))
-                    { 
+                    {
                         return false;
                     }
                 }
-                        return true;
+                return true;
             }
             return false;
         }
+        public override string ToString()
+        {
+            return $"Nombre: {Nombre}, MemoriaRam: {MemoriaRam} ";
+        }
 
-        
+
 
     }
 }
