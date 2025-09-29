@@ -15,7 +15,7 @@ namespace Ejercicio7
             do
             {
                 flag = int.TryParse(Console.ReadLine(), out numero);
-                if (numero > 0)
+                if (numero >= 0)
                 {
                     return numero;
                 }
@@ -114,7 +114,6 @@ namespace Ejercicio7
         public static void incrementaDecrementa()
         {
             Planeta planeta2 = new Planeta();
-            int n;
             Console.WriteLine("Nombre del planeta");
             planeta2.Nombre = Console.ReadLine();
             for (int i = 0; i < astros.Count; i++)
