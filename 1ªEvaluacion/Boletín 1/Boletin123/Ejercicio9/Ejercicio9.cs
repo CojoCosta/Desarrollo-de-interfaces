@@ -57,8 +57,12 @@ namespace Ejercicio9
                             {
                                 ipPorOrdenador.Add(ip, ordenador);
                             }
+                            else
+                            {
+                                flag = false;
+                            }
                         }
-                        while (false);
+                        while (!flag);
 
 
                         Console.WriteLine("Escribe la RAM: (numero entero positivo)");
@@ -121,7 +125,7 @@ namespace Ejercicio9
                         int i = 1;
                         foreach (var item in ipPorOrdenador.Keys)
                         {
-                            Console.WriteLine("ip" + i + ": " + item);
+                            Console.WriteLine($"ip{i}: {item}");
                             i++;
                         }
                         //foreach (var ordenado in ipPorOrdenador)//TODO recorrer solo conleccion de claves
@@ -137,7 +141,7 @@ namespace Ejercicio9
                         String ipMostrarRam = Console.ReadLine();
                         if (ipPorOrdenador.ContainsKey(ipMostrarRam))
                         {
-                            Console.WriteLine("Memoria de su ordenador es: " + ipPorOrdenador[ipMostrarRam]);
+                            Console.WriteLine($"Memoria de su ordenador es: {ipPorOrdenador[ipMostrarRam]}");
                         }
                         break;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ejercicio9
 {
-    internal class Ordenador
+    public class Ordenador
     {
         public string Nombre { get; set; }
         private int memoriaRam;
