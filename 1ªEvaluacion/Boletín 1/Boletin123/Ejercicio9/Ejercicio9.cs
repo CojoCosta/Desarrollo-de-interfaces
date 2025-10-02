@@ -114,8 +114,6 @@ namespace Ejercicio9
                             if (ipPorOrdenador.ContainsKey(ipEliminar))
                             {
                                 ipPorOrdenador.Remove(ipEliminar);
-                                
-                                //TODO ????? O_o'
                             }
                         }
 
@@ -128,11 +126,6 @@ namespace Ejercicio9
                             Console.WriteLine($"ip{i}: {item}");
                             i++;
                         }
-                        //foreach (var ordenado in ipPorOrdenador)//TODO recorrer solo conleccion de claves
-                        //{
-                        //Console.WriteLine("ip" + i + ": " + ordenado.Key);
-                        //i++;
-                        //}
 
                         break;
 
