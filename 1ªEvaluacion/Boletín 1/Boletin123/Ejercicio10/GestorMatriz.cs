@@ -27,6 +27,7 @@ namespace Ejercicio10
         }
 
         public GestorMatriz() : this(3, 4) { }
+
         //c) Método SumaFila: se le pasa un parámetros entero y devuelve una tupla con un entero y un booleano.El booleano devuelve true si el parámetro es un índice válido y false si no lo es. En caso de índice válido el entero devuelto es la suma de los elementos de la fila.Si no devuelve 0.
         public (int, bool) SumaFila(int numeroFila)
         {
@@ -61,7 +62,7 @@ namespace Ejercicio10
         }
 
         //e) Método SumaMatriz: tiene como parámetro un object. Si el object es un array bidimensional de int o double o un objeto del tipo GestorMatriz y es del mismo tamaño que Matriz, se suma elemento a elemento y el resultado se devuelve.En otro caso lanza una excepción creada por ti denominada MatrizException.
-        public int SumaMatriz(object obj)
+        public int SumaMatriz(object obj)//TODO suma de matrices
         {
             int acu = 0;
             if (obj.GetType() == typeof(int[,]) || obj.GetType() == typeof(double[,]) || obj.GetType() == typeof(GestorMatriz))
@@ -97,7 +98,7 @@ namespace Ejercicio10
                 {
                     var intDeTupla = SumaFila(i).Item1;
                     acu += intDeTupla;
-                    mediasFilas[i] += acu / Matriz.GetLength(0);
+                    mediasFilas[i] += acu / Matriz.GetLength(1);
                 }
                 return mediasFilas;
             }
@@ -114,7 +115,7 @@ namespace Ejercicio10
         }
 
         //g) Método estático MostrarMatriz: Parámetro tipo array bidimensional de cualquier tipo(usa genéricos<T>). Muestra la matriz parámetro teniendo como cabeceras de filas el número de fila(empezando en 1) y como cabecera de columna una letra Unicode empezando en la A.Debe quedar todo bien alineado. Usa 5 para ancho de columna.
-        public static void MostrarMatriz( int [,] bidimensional)
+        public static void MostrarMatriz( int [,] bidimensional)//TODO sin acabar
         {
             int cabeceraFilas = 1;
             
