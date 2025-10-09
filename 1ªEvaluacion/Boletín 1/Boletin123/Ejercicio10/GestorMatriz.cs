@@ -28,15 +28,18 @@ namespace Ejercicio10
 
         public GestorMatriz() : this(3, 4) { }
 
-        //c) Método SumaFila: se le pasa un parámetros entero y devuelve una tupla con un entero y un booleano.El booleano devuelve true si el parámetro es un índice válido y false si no lo es. En caso de índice válido el entero devuelto es la suma de los elementos de la fila.Si no devuelve 0.
+        //c) Método SumaFila: se le pasa un parámetros entero y devuelve una tupla
+        //con un entero y un booleano.El booleano devuelve true si el parámetro es
+        //un índice válido y false si no lo es. En caso de índice válido el entero
+        //devuelto es la suma de los elementos de la fila.Si no devuelve 0.
         public (int, bool) SumaFila(int numeroFila)
         {
             int acu = 0;
-            if (numeroFila < Matriz.GetLength(0) && numeroFila >= 0)
+            if (numeroFila  <= Matriz.GetLength(0) && numeroFila  > 0)
             {
                 for (int i = 0; i < Matriz.GetLength(1); i++)
                 {
-                    acu += Matriz[numeroFila, i];
+                    acu += Matriz[numeroFila - 1, i];
                 }
                 return (acu, true);
             }
@@ -46,22 +49,28 @@ namespace Ejercicio10
             }
         }
 
-        //d) Método SumaColumna.Se le pasa una parámetro entero que representa una columna y tendrá otro parámetro por referencia pero de salida (out) donde devuelve el resultado de la suma de los elementos de la columna.Devolverá true si el índice es correcto o false si no lo es.
+        //d) Método SumaColumna.Se le pasa una parámetro entero que representa una
+        //columna y tendrá otro parámetro por referencia pero de salida (out) donde
+        //devuelve el resultado de la suma de los elementos de la columna.Devolverá
+        //true si el índice es correcto o false si no lo es.
         public bool SumaColumna(int numeroColumna, out int resultadoSuma)
         {
             resultadoSuma = 0;
-            if (numeroColumna < Matriz.GetLength(1) && numeroColumna >= 0)
+            if (numeroColumna <= Matriz.GetLength(1) && numeroColumna > 0)
             {
                 for (int i = 0; i < Matriz.GetLength(0); i++)
                 {
-                    resultadoSuma += Matriz[i, numeroColumna];
+                    resultadoSuma += Matriz[i, numeroColumna - 1];
                 }
                 return true;
             }
             return false;
         }
 
-        //e) Método SumaMatriz: tiene como parámetro un object. Si el object es un array bidimensional de int o double o un objeto del tipo GestorMatriz y es del mismo tamaño que Matriz, se suma elemento a elemento y el resultado se devuelve.En otro caso lanza una excepción creada por ti denominada MatrizException.
+        //e) Método SumaMatriz: tiene como parámetro un object. Si el object es
+        //un array bidimensional de int o double o un objeto del tipo GestorMatriz
+        //y es del mismo tamaño que Matriz, se suma elemento a elemento y el resultado
+        //se devuelve.En otro caso lanza una excepción creada por ti denominada MatrizException.
         public int SumaMatriz(object obj)//TODO suma de matrices
         {
             int acu = 0;
@@ -73,7 +82,7 @@ namespace Ejercicio10
                     {
                         for (int j = 0; j < Matriz.GetLength(1); j++)
                         {
-                            acu += Matriz[i, j];
+
                         }
                     }
                 }
@@ -85,7 +94,9 @@ namespace Ejercicio10
             }
         }
 
-        //f ) Método medias: Tiene un parámetro booleano.Si es true devuelve un vector de doubles con la media de cada una de las filas. Si es false devuelve un vector de doubles con la media de cada una de las columnas.
+        //f ) Método medias: Tiene un parámetro booleano.Si es true devuelve un vector
+        //de doubles con la media de cada una de las filas. Si es false devuelve un vector
+        //de doubles con la media de cada una de las columnas.
         public double[] Medias(bool flag)
         {
             int acu = 0;
@@ -114,12 +125,38 @@ namespace Ejercicio10
             }
         }
 
-        //g) Método estático MostrarMatriz: Parámetro tipo array bidimensional de cualquier tipo(usa genéricos<T>). Muestra la matriz parámetro teniendo como cabeceras de filas el número de fila(empezando en 1) y como cabecera de columna una letra Unicode empezando en la A.Debe quedar todo bien alineado. Usa 5 para ancho de columna.
-        public static void MostrarMatriz( int [,] bidimensional)//TODO sin acabar
+        //g) Método estático MostrarMatriz: Parámetro tipo array bidimensional de cualquier
+        //tipo(usa genéricos<T>). Muestra la matriz parámetro teniendo como cabeceras de filas
+        //el número de fila(empezando en 1) y como cabecera de columna una letra Unicode empezando
+        //en la A.Debe quedar todo bien alineado. Usa 5 para ancho de columna.
+        public static void MostrarMatriz<T>(T[,] matriz)//TODO sin acabar
         {
-            int cabeceraFilas = 1;
-            
-        }
+            int cabeceraNums = 1;
+            if (matriz == null || matriz.GetLength(0) == 0 || matriz.GetLength(1) == 0)
+            {
+                Console.WriteLine("Matriz inválida");
+            }
+            else
+            {
+                Console.Write("{0,3}", "");
+                for (int i = 0; i < matriz.GetLength(1); i++)
+                {
+                    char margenLetras = (char) ('A' + i);
+                    Console.Write("{0,3}", margenLetras);
+                }
+                Console.WriteLine();
+                for (int j = 0; j < matriz.GetLength(0); j++)
+                {
+                    Console.Write("{0,3}", j + 1);
+                    for (int k = 0;  k < matriz.GetLength(1); k++)
+                    {
+                        Console.Write("{0,3}", matriz[j,k]);
+                    }
+                    Console.WriteLine();
+                }
+            }
 
+        }
+        
     }
 }
