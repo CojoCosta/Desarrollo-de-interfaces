@@ -10,16 +10,20 @@ using System.Windows.Forms;
 
 namespace Tema4WindowsForms
 {
-    public partial class Form1 : Form
+    public partial class Ejercicio1 : Form
     {
-        public Form1()
+        public Ejercicio1()
         {
             InitializeComponent();
         }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Ejercicio1_MouseMove(object sender, MouseEventArgs e)
         {
-            e.Cancel = true;
+            this.Text = $"X: {MousePosition.X} , Y: {MousePosition.Y}";
+        }
+
+        private void Ejercicio1_MouseLeave(object sender, EventArgs e)
+        {
+            this.Text = "Mouse Tester";
         }
     }
 }
