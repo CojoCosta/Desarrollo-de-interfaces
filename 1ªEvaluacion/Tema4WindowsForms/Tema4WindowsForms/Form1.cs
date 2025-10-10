@@ -25,5 +25,6 @@ namespace Tema4WindowsForms
         {
             this.Text = "Mouse Tester";
         }
+
     }
 }
