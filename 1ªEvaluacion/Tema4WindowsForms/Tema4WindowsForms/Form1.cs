@@ -16,5 +16,10 @@ namespace Tema4WindowsForms
         {
             InitializeComponent();
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
     }
 }
