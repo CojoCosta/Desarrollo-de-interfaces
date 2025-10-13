@@ -34,7 +34,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(117, 83);
+            this.button1.Location = new System.Drawing.Point(220, 76);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(441, 82);
+            this.button2.Location = new System.Drawing.Point(454, 76);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -61,8 +61,11 @@
             this.Controls.Add(this.button1);
             this.Name = "Ejercicio1";
             this.Text = "Mouse Tester";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Ejercicio1_KeyPress);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Ejercicio1_MouseDown);
             this.MouseLeave += new System.EventHandler(this.Ejercicio1_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ejercicio1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Ejercicio1_MouseUp);
             this.ResumeLayout(false);
 
         }

@@ -25,6 +25,35 @@ namespace Tema4WindowsForms
         {
             this.Text = "Mouse Tester";
         }
+     
 
+        private void Ejercicio1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (MouseButtons.Right == e.Button)
+            {
+                button2.BackColor = Color.Red;
+            }
+            else if (MouseButtons.Left == e.Button)
+            {
+                button1.BackColor = Color.Green;
+            }
+            else
+            {
+                button1.BackColor = Color.Blue;
+                button2.BackColor = Color.Blue;
+            }
+        }
+
+        private void Ejercicio1_MouseUp(object sender, MouseEventArgs e)
+        {
+            Color colorOriginal = button1.BackColor;
+            button1.BackColor = colorOriginal;
+            button2.BackColor = colorOriginal;
+        }
+
+        private void Ejercicio1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //this.Text = 
+        }
     }
 }
