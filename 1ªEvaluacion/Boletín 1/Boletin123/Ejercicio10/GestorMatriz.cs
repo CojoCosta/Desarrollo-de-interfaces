@@ -71,9 +71,10 @@ namespace Ejercicio10
         //un array bidimensional de int o double o un objeto del tipo GestorMatriz
         //y es del mismo tamaño que Matriz, se suma elemento a elemento y el resultado
         //se devuelve.En otro caso lanza una excepción creada por ti denominada MatrizException.
-        public int SumaMatriz(object obj)//TODO suma de matrices
+        //public T[,] SumaMatriz<T>...{} 
+        public double[,] SumaMatriz(object obj)//TODO suma de matrices
         {
-            int acu = 0;
+            double [,] acu;
             if (obj.GetType() == typeof(int[,]) || obj.GetType() == typeof(double[,]) || obj.GetType() == typeof(GestorMatriz))
             {
                 if (obj.GetType().GetArrayRank() == Matriz.GetLength(0))
