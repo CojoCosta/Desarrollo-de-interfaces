@@ -108,8 +108,8 @@ namespace Ejercicio10
                 for (int i = 0; i < Matriz.GetLength(0); i++)
                 {
                     var intDeTupla = SumaFila(i).Item1;
-                    acu += intDeTupla;
-                    mediasFilas[i] += acu / Matriz.GetLength(1);
+                   // acu += intDeTupla;
+                    mediasFilas[i] = intDeTupla / Matriz.GetLength(1);
                 }
                 return mediasFilas;
             }
@@ -118,8 +118,8 @@ namespace Ejercicio10
                 for (int i = 0; i < Matriz.GetLength(1); i++)
                 {
                     bool columna = SumaColumna(i, out int resultadoSuma);
-                    acu += resultadoSuma;
-                    mediasColumnas[i] += acu / Matriz.GetLength(0);
+                    
+                    mediasColumnas[i] = resultadoSuma / Matriz.GetLength(0);
                 }
                 return mediasColumnas;
             }
