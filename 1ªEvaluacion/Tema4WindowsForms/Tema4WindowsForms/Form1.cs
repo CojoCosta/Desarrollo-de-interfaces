@@ -16,6 +16,7 @@ namespace Tema4WindowsForms
     {
         string titulo;
         Button boton;
+        Button[] botones = new Button[20];
         public Ejercicio1()
         {
             InitializeComponent();
@@ -51,19 +52,31 @@ namespace Tema4WindowsForms
 
         private void Ejercicio1_MouseUp(object sender, MouseEventArgs e)
         {
-            button1.BackColor = Color.Empty;
-            button2.BackColor = Color.Empty;
+            if (MouseButtons.Right == e.Button)
+            {
+                button2.BackColor = Color.Empty;
+            }
+            else if (MouseButtons.Left == e.Button)
+            {
+                button1.BackColor = Color.Empty;
+            }
+            else
+            {
+                button1.BackColor = Color.Empty;
+                button2.BackColor = Color.Empty;
+            }
         }
 
-        private void Ejercicio1_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void Ejercicio1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyChar is (char)Keys.Escape)
+            if (e.KeyCode is Keys.Escape)
             {
                 this.Text = titulo;
             }
             else
             {
-                this.Text = e.KeyChar.ToString();
+                this.Text = e.KeyCode.ToString();
             }
         }
 
@@ -79,19 +92,38 @@ namespace Tema4WindowsForms
                 boton.Size = new Size(80, 20);
                 boton.Enabled = true;
                 this.Controls.Add(boton);
+                botones[i - 1] = boton;
                 x += 100;
                 if (i % 5 == 0)
                 {
                     x = 200;
                     y += 40;
                 }
-                this.boton.Click += new System.EventHandler(this.botonClick);
+                boton.MouseUp += Boton_MouseUp;
+                boton.MouseDown += Boton_MouseDown;
+                boton.MouseMove += Ejercicio1_MouseMove;
             }
         }
-
-        private void botonClick(object sender, EventArgs e)
+        private void Boton_MouseDown(object sender, MouseEventArgs e)
         {
-            
+            for (int i = 0; i < botones.Length; i++)
+            {
+                if (botones[i] == sender)
+                {
+                    botones[i].ForeColor = Color.Red;
+                }
+
+            }
+        }
+        private void Boton_MouseUp(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < botones.Length; i++)
+            {
+                if (botones[i] == sender)
+                {
+                    botones[i].ForeColor = Color.Black;
+                }
+            }
         }
     }
 }

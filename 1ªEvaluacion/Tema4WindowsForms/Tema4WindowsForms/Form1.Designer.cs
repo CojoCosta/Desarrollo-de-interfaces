@@ -63,12 +63,12 @@
             this.Name = "Ejercicio1";
             this.Text = "Mouse Tester";
             this.Load += new System.EventHandler(this.Ejercicio1_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Ejercicio1_KeyPress);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Ejercicio1_MouseDown);
             this.MouseLeave += new System.EventHandler(this.Ejercicio1_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Ejercicio1_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Ejercicio1_MouseUp);
             this.ResumeLayout(false);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ejercicio1_KeyDown);
 
         }
 
