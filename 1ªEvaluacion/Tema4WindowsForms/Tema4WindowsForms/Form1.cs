@@ -60,7 +60,7 @@ namespace Tema4WindowsForms
             {
                 button1.BackColor = Color.Empty;
             }
-            else
+            else if (MouseButtons.Middle == e.Button)
             {
                 button1.BackColor = Color.Empty;
                 button2.BackColor = Color.Empty;
@@ -87,7 +87,7 @@ namespace Tema4WindowsForms
             for (int i = 1; i <= 20; i++)
             {
                 boton = new Button();
-                boton.Text = $"{i}";
+                boton.Text = $"Botón {i}";
                 boton.Location = new Point(x, y);
                 boton.Size = new Size(80, 20);
                 boton.Enabled = true;
