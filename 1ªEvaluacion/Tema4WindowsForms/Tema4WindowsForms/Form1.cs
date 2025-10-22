@@ -10,13 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tema4WindowsForms
+namespace Tema4WindowsForms//TODO icono. Coor botones. Confirmación cierre. Quitar bucles en mousedown y up.
 {
     public partial class Ejercicio1 : Form
     {
         string titulo;
         Button boton;
-        Button[] botones = new Button[20];
         public Ejercicio1()
         {
             InitializeComponent();
@@ -60,7 +59,7 @@ namespace Tema4WindowsForms
             {
                 button1.BackColor = Color.Empty;
             }
-            else if (MouseButtons.Middle == e.Button)
+            else
             {
                 button1.BackColor = Color.Empty;
                 button2.BackColor = Color.Empty;
@@ -92,7 +91,6 @@ namespace Tema4WindowsForms
                 boton.Size = new Size(80, 20);
                 boton.Enabled = true;
                 this.Controls.Add(boton);
-                botones[i - 1] = boton;
                 x += 100;
                 if (i % 5 == 0)
                 {
@@ -106,23 +104,16 @@ namespace Tema4WindowsForms
         }
         private void Boton_MouseDown(object sender, MouseEventArgs e)
         {
-            for (int i = 0; i < botones.Length; i++)
+            if (boton == sender)
             {
-                if (botones[i] == sender)
-                {
-                    botones[i].ForeColor = Color.Red;
-                }
-
+                boton.ForeColor = Color.Red;
             }
         }
         private void Boton_MouseUp(object sender, MouseEventArgs e)
         {
-            for (int i = 0; i < botones.Length; i++)
+            if (boton == sender)
             {
-                if (botones[i] == sender)
-                {
-                    botones[i].ForeColor = Color.Black;
-                }
+                boton.ForeColor = Color.Black;
             }
         }
     }
