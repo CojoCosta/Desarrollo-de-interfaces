@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace Tema4WindowsForms
-    //TODO icono(Hecho).
-    //Coor botones(Hecho).
-    //Confirmación cierre(Hecho).
-    //Quitar bucles en mousedown y up(Hecho).
 {
     public partial class Ejercicio1 : Form
     {
@@ -36,8 +26,8 @@ namespace Tema4WindowsForms
             }
             else
             {
-                int xBt = ((Button)sender).Location.X;
-                int yBt = ((Button)sender).Location.Y;
+                int xBt = ((Control)sender).Location.X;
+                int yBt = ((Control)sender).Location.Y;
                 this.Text = $"X: {x + xBt} Y: {y + yBt}";
             }
 
