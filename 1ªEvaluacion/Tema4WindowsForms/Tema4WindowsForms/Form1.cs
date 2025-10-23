@@ -10,12 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tema4WindowsForms//TODO icono. Coor botones. Confirmación cierre. Quitar bucles en mousedown y up.
+namespace Tema4WindowsForms
+    //TODO icono(Hecho).
+    //Coor botones(Hecho).
+    //Confirmación cierre(Hecho).
+    //Quitar bucles en mousedown y up(Hecho).
 {
     public partial class Ejercicio1 : Form
     {
         string titulo;
-        Button boton;
+
         public Ejercicio1()
         {
             InitializeComponent();
@@ -23,7 +27,20 @@ namespace Tema4WindowsForms//TODO icono. Coor botones. Confirmación cierre. Qui
         }
         private void Ejercicio1_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = $"X: {MousePosition.X} , Y: {MousePosition.Y}";
+
+            int x = e.X;
+            int y = e.Y;
+            if (sender == this)
+            {
+                this.Text = $"X: {x} Y: {y}";
+            }
+            else
+            {
+                int xBt = ((Button)sender).Location.X;
+                int yBt = ((Button)sender).Location.Y;
+                this.Text = $"X: {x + xBt} Y: {y + yBt}";
+            }
+
         }
 
         private void Ejercicio1_MouseLeave(object sender, EventArgs e)
@@ -85,7 +102,7 @@ namespace Tema4WindowsForms//TODO icono. Coor botones. Confirmación cierre. Qui
             int y = 200;
             for (int i = 1; i <= 20; i++)
             {
-                boton = new Button();
+                Button boton = new Button();
                 boton.Text = $"Botón {i}";
                 boton.Location = new Point(x, y);
                 boton.Size = new Size(80, 20);
@@ -104,16 +121,18 @@ namespace Tema4WindowsForms//TODO icono. Coor botones. Confirmación cierre. Qui
         }
         private void Boton_MouseDown(object sender, MouseEventArgs e)
         {
-            if (boton == sender)
-            {
-                boton.ForeColor = Color.Red;
-            }
+            ((Button)sender).ForeColor = Color.Red;
         }
         private void Boton_MouseUp(object sender, MouseEventArgs e)
         {
-            if (boton == sender)
+            ((Button)sender).ForeColor = Color.Black;
+        }
+
+        private void Ejercicio1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Mi Aplicación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
             {
-                boton.ForeColor = Color.Black;
+                e.Cancel = true;
             }
         }
     }

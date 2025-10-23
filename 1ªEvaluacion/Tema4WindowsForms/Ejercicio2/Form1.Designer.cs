@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -105,12 +106,13 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(260, 342);
+            this.button4.BackColor = System.Drawing.Color.Red;
+            this.button4.Location = new System.Drawing.Point(260, 341);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 8;
-            this.button4.Text = "salir";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Text = "SALIR";
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -127,6 +129,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
