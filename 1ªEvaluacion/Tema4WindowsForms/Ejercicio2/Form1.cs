@@ -19,16 +19,10 @@ namespace Ejercicio2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            AcceptButton = btnColor;
+            CancelButton = btnSalir;
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Mi Aplicación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
-            {
-                e.Cancel = true;
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -44,9 +38,21 @@ namespace Ejercicio2
             this.BackColor = Color.FromArgb(rgb[0], rgb[1], rgb[2]);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Mi Aplicación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void Form1_MouseEnter(object sender, EventArgs e)
+        {
+            
         }
     }
 }
