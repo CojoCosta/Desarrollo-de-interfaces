@@ -43,28 +43,28 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 80);
+            this.textBox1.Location = new System.Drawing.Point(178, 82);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(268, 80);
+            this.textBox2.Location = new System.Drawing.Point(327, 82);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(421, 80);
+            this.textBox3.Location = new System.Drawing.Point(480, 82);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 2;
             // 
             // btnColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(577, 80);
+            this.btnColor.Location = new System.Drawing.Point(340, 130);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(75, 23);
             this.btnColor.TabIndex = 3;
@@ -76,33 +76,34 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(119, 191);
+            this.textBox4.Location = new System.Drawing.Point(210, 212);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 4;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(341, 178);
+            this.pictureBox1.Location = new System.Drawing.Point(364, 159);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(288, 130);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
             // cargaImagen
             // 
-            this.cargaImagen.Location = new System.Drawing.Point(355, 191);
+            this.cargaImagen.Location = new System.Drawing.Point(469, 212);
             this.cargaImagen.Name = "cargaImagen";
-            this.cargaImagen.Size = new System.Drawing.Size(75, 23);
+            this.cargaImagen.Size = new System.Drawing.Size(87, 23);
             this.cargaImagen.TabIndex = 6;
-            this.cargaImagen.Text = "button2";
+            this.cargaImagen.Text = "Cargar Imagen";
             this.cargaImagen.UseVisualStyleBackColor = true;
+            this.cargaImagen.Click += new System.EventHandler(this.cargaImagen_Click);
             this.cargaImagen.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.cargaImagen.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(577, 188);
+            this.reset.Location = new System.Drawing.Point(256, 335);
             this.reset.Name = "reset";
             this.reset.Size = new System.Drawing.Size(75, 23);
             this.reset.TabIndex = 7;
@@ -115,7 +116,7 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnSalir.Location = new System.Drawing.Point(355, 335);
+            this.btnSalir.Location = new System.Drawing.Point(421, 335);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 8;
