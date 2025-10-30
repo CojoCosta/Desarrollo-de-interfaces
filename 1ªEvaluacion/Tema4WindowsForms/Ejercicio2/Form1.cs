@@ -12,14 +12,16 @@ namespace Ejercicio2
 {
     public partial class Form1 : Form
     {
+        static Color colorDefault;
         public Form1()
         {
             InitializeComponent();
             AcceptButton = btnColor;
             CancelButton = btnSalir;
+            colorDefault = btnColor.BackColor;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnColor_Click(object sender, EventArgs e)
         {
             byte[] rgb = new byte[3];
             string[] rgbStrings = {textBox1.Text, textBox2.Text, textBox3.Text};
@@ -45,9 +47,17 @@ namespace Ejercicio2
             this.Close();
         }
 
-        private void Form1_MouseEnter(object sender, EventArgs e)
+        private void reset_Click(object sender, EventArgs e)
         {
-            
         }
+        private void Button_MouseEnter(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Blue;            
+        }
+        private void Button_MouseLeave(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = colorDefault;
+        }
+
     }
 }

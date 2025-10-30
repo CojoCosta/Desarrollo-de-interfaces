@@ -35,8 +35,8 @@
             this.btnColor = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.cargaImagen = new System.Windows.Forms.Button();
+            this.reset = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +70,9 @@
             this.btnColor.TabIndex = 3;
             this.btnColor.Text = "Color";
             this.btnColor.UseVisualStyleBackColor = true;
-            this.btnColor.Click += new System.EventHandler(this.button1_Click);
+            this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            this.btnColor.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnColor.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // textBox4
             // 
@@ -87,23 +89,28 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // button2
+            // cargaImagen
             // 
-            this.button2.Location = new System.Drawing.Point(355, 191);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cargaImagen.Location = new System.Drawing.Point(355, 191);
+            this.cargaImagen.Name = "cargaImagen";
+            this.cargaImagen.Size = new System.Drawing.Size(75, 23);
+            this.cargaImagen.TabIndex = 6;
+            this.cargaImagen.Text = "button2";
+            this.cargaImagen.UseVisualStyleBackColor = true;
+            this.cargaImagen.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.cargaImagen.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
-            // button3
+            // reset
             // 
-            this.button3.Location = new System.Drawing.Point(577, 188);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "RESET";
-            this.button3.UseVisualStyleBackColor = true;
+            this.reset.Location = new System.Drawing.Point(577, 188);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(75, 23);
+            this.reset.TabIndex = 7;
+            this.reset.Text = "RESET";
+            this.reset.UseVisualStyleBackColor = true;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
+            this.reset.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.reset.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // btnSalir
             // 
@@ -115,6 +122,8 @@
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // Form1
             // 
@@ -122,8 +131,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.reset);
+            this.Controls.Add(this.cargaImagen);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.btnColor);
@@ -140,7 +149,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,8 +163,8 @@
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button cargaImagen;
+        private System.Windows.Forms.Button reset;
         private System.Windows.Forms.Button btnSalir;
     }
 }
