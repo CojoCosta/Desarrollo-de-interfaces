@@ -15,14 +15,9 @@ namespace Ejercicio2
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
             AcceptButton = btnColor;
             CancelButton = btnSalir;
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
