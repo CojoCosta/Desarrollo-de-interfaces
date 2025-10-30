@@ -59,7 +59,15 @@ namespace Ejercicio2
 
         private void cargaImagen_Click(object sender, EventArgs e)
         {
-
+            string urlImg = textBox4.Text;
+            if (!string.IsNullOrEmpty(urlImg))
+            {
+                pictureBox1.Image = Image.FromFile(urlImg);
+            }
+            else
+            {
+                textBox4.Text = "PATH INCORRECTO";
+            }
         }
         private void Button_MouseEnter(object sender, EventArgs e)
         {
