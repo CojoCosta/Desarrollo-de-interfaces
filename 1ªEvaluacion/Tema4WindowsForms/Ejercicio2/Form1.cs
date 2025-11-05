@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
-namespace Ejercicio2
+namespace Ejercicio2//TODO 
+                    //Gestión AcceptButton. -> CHECK
+                    //limpiar en reset. -> CHECK
 {
     public partial class Form1 : Form
     {
@@ -21,6 +25,7 @@ namespace Ejercicio2
             CancelButton = btnSalir;
             colorDefault = btnColor.BackColor;
             colorFondo = this.BackColor;
+            this.Text = "Ejercicio 2";
         }
 
         private void btnColor_Click(object sender, EventArgs e)
@@ -31,7 +36,9 @@ namespace Ejercicio2
             {
                 if (!byte.TryParse(rgbStrings[i], out rgb[i]))
                 {
-                    rgb[i] = 255;
+                    MessageBox.Show("Parámetros incorrectos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.BackColor = colorFondo;
+                    break;
                 }
             }
             this.BackColor = Color.FromArgb(rgb[0], rgb[1], rgb[2]);
@@ -44,25 +51,37 @@ namespace Ejercicio2
             {
                 if (control is TextBox tb)
                 {
-                    if (tb.Name == textBox4.Name)
+                    if (control.Name == textBox4.Name)
                     {
-                        tb.Text = string.Empty;
+                        control.Text = string.Empty;
                     }
                     else
                     {
-                        tb.Text = "0";
+                        control.Text = "0";
                     }
                 }
             }
+            pictureBox1.Image = null;
             this.BackColor = colorFondo;
         }
 
         private void cargaImagen_Click(object sender, EventArgs e)
         {
-            string urlImg = textBox4.Text;
-            if (!string.IsNullOrEmpty(urlImg))
+            if (!string.IsNullOrEmpty(textBox4.Text))
             {
-                pictureBox1.Image = Image.FromFile(urlImg);
+                try
+                {
+                    pictureBox1.Image = new Bitmap(textBox4.Text);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("No encontramos la imagen", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (FileNotFoundException)
+                {
+                    MessageBox.Show("No encontramos la imagen", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -87,6 +106,17 @@ namespace Ejercicio2
             {
                 e.Cancel = true;
             }
+        }
+
+        private void textBox4_Enter(object sender, EventArgs e)
+        {
+            AcceptButton = cargaImagen;
+        }
+
+
+        private void textBox4_Leave(object sender, EventArgs e)
+        {
+            AcceptButton = btnColor;
         }
     }
 }
