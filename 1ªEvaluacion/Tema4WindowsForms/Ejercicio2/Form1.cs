@@ -10,9 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
-namespace Ejercicio2//TODO 
-                    //Gestión AcceptButton. -> CHECK
-                    //limpiar en reset. -> CHECK
+namespace Ejercicio2 
 {
     public partial class Form1 : Form
     {
