@@ -45,6 +45,8 @@ namespace Ejercicio3
             of.InitialDirectory = "c:\\";
             of.Filter = "Imagenes (*.png) |*.png| Imagenes (*.jpg) |*.jpg| Todos los archivos (*.*) |*.*";
             of.ShowDialog();
+            try
+            {
             Secundario secundario = new Secundario();
             if (checkBox1.Checked)
             {
@@ -55,6 +57,20 @@ namespace Ejercicio3
                 secundario.Show();
             }
             secundario.Text = Path.GetFileName(of.FileName);
+            secundario.cargarImagen(of.FileName);
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Error de archivo", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (OutOfMemoryException)
+            {
+                MessageBox.Show("Error con la imagen", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Has salido sin seleccionar imagen", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
 
         }

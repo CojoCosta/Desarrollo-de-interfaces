@@ -16,5 +16,29 @@ namespace Ejercicio3
         {
             InitializeComponent();
         }
+
+        public void cargarImagen(String nombreImagen)
+        {
+            pictureBox1.Image = Image.FromFile(nombreImagen);
+        }
+
+
+        private void Secundario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Mi Aplicación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void deformadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void noDeformadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+        }
     }
 }
