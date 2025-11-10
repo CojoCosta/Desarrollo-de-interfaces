@@ -44,20 +44,26 @@ namespace Ejercicio3
             of.Title = "Seleciciona una imagen";
             of.InitialDirectory = "c:\\";
             of.Filter = "Imagenes (*.png) |*.png| Imagenes (*.jpg) |*.jpg| Todos los archivos (*.*) |*.*";
-            of.ShowDialog();
+            of.ValidateNames = true;
+            string nombre = "";
+            DialogResult dr = of.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                nombre = Path.GetFileName(of.FileName);
+            }
             try
             {
-            Secundario secundario = new Secundario();
-            if (checkBox1.Checked)
-            {
-                secundario.ShowDialog();
-            }
-            else
-            {
-                secundario.Show();
-            }
-            secundario.Text = Path.GetFileName(of.FileName);
-            secundario.cargarImagen(of.FileName);
+                Secundario secundario = new Secundario();
+                if (checkBox1.Checked)
+                {
+                    secundario.ShowDialog();
+                }
+                else
+                {
+                    secundario.Show();
+                }
+                secundario.Text = nombre;
+                secundario.cargarImagen(of.FileName);
             }
             catch (IOException)
             {
