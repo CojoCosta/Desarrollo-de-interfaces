@@ -12,14 +12,17 @@ namespace Ejercicio3
 {
     public partial class Form1 : Form
     {
+        int segundos;
+        int minutos;
         public Form1()
         {
             InitializeComponent();
+            timer1.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Text = this.Text + " - " + 
+            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -41,6 +44,17 @@ namespace Ejercicio3
             of.InitialDirectory = "c:\\";
             of.Filter = "Imagenes (*.png) | *.png | Imagenes (*.jpg) | *.jpg | Todos los archivos (*.*) | *.*";
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            segundos ++;
+            if (segundos == 60)
+            {
+                segundos = 0;
+                minutos ++;
+            }
+            this.Text = $"Visor de imágenes - {minutos:d2}:{segundos:d2}";
         }
     }
 }
