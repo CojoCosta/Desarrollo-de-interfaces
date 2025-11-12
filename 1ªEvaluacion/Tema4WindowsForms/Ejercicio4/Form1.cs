@@ -16,6 +16,7 @@ namespace Ejercicio4
         {
             InitializeComponent();
             AcceptButton = btAñadir;
+            timer1.Start();
         }
 
         private void btAñadir_Click(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace Ejercicio4
                 {
                     lista1.Items.RemoveAt(lista1.SelectedIndex);
                 }
-                    nElementos.Text = lista1.Items.Count.ToString();
+                nElementos.Text = lista1.Items.Count.ToString();
             }
             else if (borrar2.Checked)
             {
@@ -92,9 +93,25 @@ namespace Ejercicio4
             string aux = "";
             foreach (var item in lista1.SelectedIndices)
             {
-               aux += $" {item}";
+                aux += $" {item}";
             }
             elementosSelec.Text = aux;
+        }
+        int i = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            string aux = "Formulario listas ";
+            this.Icon = Properties.Resources.logo_chat_gpt_icon_267516;
+            this.Text = aux.Substring(aux.Length - i - 1);
+            i++;
+            if (i >= aux.Length)
+            {
+                i = 0;
+            }
+            if (i % 2 == 0)
+            {
+                this.Icon = Properties.Resources.instagram_logo_icon_267526;
+            }
         }
     }
 }
