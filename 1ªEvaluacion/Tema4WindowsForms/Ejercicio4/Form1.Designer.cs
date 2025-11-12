@@ -45,6 +45,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ayuda = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +64,7 @@
             this.btAñadir.Size = new System.Drawing.Size(104, 23);
             this.btAñadir.TabIndex = 1;
             this.btAñadir.Text = "Añadir";
+            this.ayuda.SetToolTip(this.btAñadir, "Botón añadir");
             this.btAñadir.UseVisualStyleBackColor = true;
             this.btAñadir.Click += new System.EventHandler(this.btAñadir_Click);
             // 
@@ -73,6 +75,7 @@
             this.btQuitar.Size = new System.Drawing.Size(104, 23);
             this.btQuitar.TabIndex = 2;
             this.btQuitar.Text = "Quitar";
+            this.ayuda.SetToolTip(this.btQuitar, "Botón eliminar elementos");
             this.btQuitar.UseVisualStyleBackColor = true;
             this.btQuitar.Click += new System.EventHandler(this.btQuitar_Click);
             // 
@@ -83,6 +86,7 @@
             this.btTraspasar.Size = new System.Drawing.Size(104, 23);
             this.btTraspasar.TabIndex = 3;
             this.btTraspasar.Text = "Traspasar";
+            this.ayuda.SetToolTip(this.btTraspasar, "Botón trapasar elementos entre listas");
             this.btTraspasar.UseVisualStyleBackColor = true;
             this.btTraspasar.Click += new System.EventHandler(this.btTraspasar_Click);
             // 
@@ -112,6 +116,7 @@
             this.lista1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lista1.Size = new System.Drawing.Size(109, 82);
             this.lista1.TabIndex = 6;
+            this.ayuda.SetToolTip(this.lista1, "Lista 1 (selección múltiple)");
             this.lista1.SelectedIndexChanged += new System.EventHandler(this.lista1_SelectedIndexChanged);
             // 
             // lista2
@@ -121,6 +126,9 @@
             this.lista2.Name = "lista2";
             this.lista2.Size = new System.Drawing.Size(109, 82);
             this.lista2.TabIndex = 7;
+            this.ayuda.SetToolTip(this.lista2, "Lista 2 (Selección única)");
+            this.lista2.MouseEnter += new System.EventHandler(this.lista2_MouseEnter);
+            this.lista2.MouseLeave += new System.EventHandler(this.lista2_MouseLeave);
             // 
             // borrar1
             // 
@@ -241,6 +249,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolTip ayuda;
     }
 }
 

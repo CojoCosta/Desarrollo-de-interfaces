@@ -113,5 +113,15 @@ namespace Ejercicio4
                 this.Icon = Properties.Resources.instagram_logo_icon_267526;
             }
         }
+
+        private void lista2_MouseEnter(object sender, EventArgs e)
+        {
+            ayuda.ToolTipTitle =$"{lista2.Items.Count}";
+        }
+
+        private void lista2_MouseLeave(object sender, EventArgs e)
+        {
+            ayuda.ToolTipTitle = "";
+        }
     }
 }
