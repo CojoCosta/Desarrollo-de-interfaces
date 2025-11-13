@@ -22,15 +22,6 @@ namespace Ejercicio3
             pictureBox1.Image = Image.FromFile(nombreImagen);
         }
 
-
-        private void Secundario_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Mi Aplicación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
-            {
-                e.Cancel = true;
-            }
-        }
-
         private void deformadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;

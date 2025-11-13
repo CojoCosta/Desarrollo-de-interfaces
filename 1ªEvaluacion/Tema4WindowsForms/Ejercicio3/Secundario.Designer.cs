@@ -89,7 +89,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Secundario";
             this.Text = "Secundario";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Secundario_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);

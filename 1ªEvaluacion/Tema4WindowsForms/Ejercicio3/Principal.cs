@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ejercicio3
+namespace Ejercicio3//Si se cancela o hay error que no abra formulario. Y no pida confirmación en secundario. Imagen en modal.
 {
     public partial class Principal : Form
     {
@@ -28,7 +28,7 @@ namespace Ejercicio3
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox1.Checked)
             {
                 checkBox1.ForeColor = Color.Red;
             }
@@ -54,6 +54,8 @@ namespace Ejercicio3
             try
             {
                 Secundario secundario = new Secundario();
+                secundario.Text = nombre;
+                secundario.cargarImagen(of.FileName);
                 if (checkBox1.Checked)
                 {
                     secundario.ShowDialog();
@@ -62,8 +64,6 @@ namespace Ejercicio3
                 {
                     secundario.Show();
                 }
-                secundario.Text = nombre;
-                secundario.cargarImagen(of.FileName);
             }
             catch (IOException)
             {
