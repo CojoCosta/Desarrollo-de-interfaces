@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ejercicio3//Si se cancela o hay error que no abra formulario. Y no pida confirmación en secundario. Imagen en modal.
+namespace Ejercicio3
 {
     public partial class Principal : Form
     {
@@ -50,33 +50,34 @@ namespace Ejercicio3//Si se cancela o hay error que no abra formulario. Y no pid
             if (dr == DialogResult.OK)
             {
                 nombre = Path.GetFileName(of.FileName);
-            }
-            try
-            {
-                Secundario secundario = new Secundario();
-                secundario.Text = nombre;
-                secundario.cargarImagen(of.FileName);
-                if (checkBox1.Checked)
+                try
                 {
-                    secundario.ShowDialog();
+                    Secundario secundario = new Secundario();
+                    secundario.Text = nombre;
+                    secundario.cargarImagen(of.FileName);
+                    if (checkBox1.Checked)
+                    {
+                        secundario.ShowDialog();
+                    }
+                    else
+                    {
+                        secundario.Show();
+                    }
                 }
-                else
+                catch (IOException)
                 {
-                    secundario.Show();
+                    MessageBox.Show("Error de archivo", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (OutOfMemoryException)
+                {
+                    MessageBox.Show("Error con la imagen", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (ArgumentException)
+                {
+                    MessageBox.Show("Has salido sin seleccionar imagen", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (IOException)
-            {
-                MessageBox.Show("Error de archivo", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (OutOfMemoryException)
-            {
-                MessageBox.Show("Error con la imagen", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (ArgumentException)
-            {
-                MessageBox.Show("Has salido sin seleccionar imagen", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+           
 
 
         }
