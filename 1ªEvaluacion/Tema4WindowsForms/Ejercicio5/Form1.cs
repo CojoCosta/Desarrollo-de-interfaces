@@ -51,6 +51,7 @@ namespace Ejercicio5
                 boton.MouseDown += Boton_MouseDown;
                 boton.MouseEnter += Boton_MouseEnter;
                 boton.MouseLeave += Boton_MouseLeave;
+                boton.Click += btReset_Click;
                 this.Controls.Add(boton);
             }
         }
@@ -79,7 +80,11 @@ namespace Ejercicio5
 
         private void btReset_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            if (((Button)sender) == btReset)
+            {
+                textBox1.Text = "";
+                ((Button)sender).BackColor = btoriginal;
+            }
         }
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
