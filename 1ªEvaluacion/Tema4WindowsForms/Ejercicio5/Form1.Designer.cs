@@ -43,12 +43,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.acercaDeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(949, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -61,72 +63,80 @@
             this.separadorToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // grabarNúmeroToolStripMenuItem
             // 
             this.grabarNúmeroToolStripMenuItem.Name = "grabarNúmeroToolStripMenuItem";
-            this.grabarNúmeroToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.grabarNúmeroToolStripMenuItem.Size = new System.Drawing.Size(240, 34);
             this.grabarNúmeroToolStripMenuItem.Text = "Grabar número";
             // 
             // mostrarAgendaToolStripMenuItem
             // 
             this.mostrarAgendaToolStripMenuItem.Name = "mostrarAgendaToolStripMenuItem";
-            this.mostrarAgendaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.mostrarAgendaToolStripMenuItem.Size = new System.Drawing.Size(240, 34);
             this.mostrarAgendaToolStripMenuItem.Text = "Mostrar agenda";
             // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(240, 34);
             this.resetToolStripMenuItem.Text = "Reset";
             // 
             // separadorToolStripMenuItem
             // 
             this.separadorToolStripMenuItem.Name = "separadorToolStripMenuItem";
-            this.separadorToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.separadorToolStripMenuItem.Size = new System.Drawing.Size(240, 34);
             this.separadorToolStripMenuItem.Text = "Separador";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(117, 29);
             this.acercaDeToolStripMenuItem.Text = "Acerca de...";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(245, 27);
+            this.textBox1.Location = new System.Drawing.Point(375, 42);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
+            this.textBox1.Size = new System.Drawing.Size(180, 110);
             this.textBox1.TabIndex = 1;
             // 
             // btReset
             // 
-            this.btReset.Location = new System.Drawing.Point(362, 415);
+            this.btReset.Location = new System.Drawing.Point(411, 454);
+            this.btReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(75, 23);
+            this.btReset.Size = new System.Drawing.Size(112, 35);
             this.btReset.TabIndex = 2;
             this.btReset.Text = "RESET";
             this.btReset.UseVisualStyleBackColor = true;
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(949, 516);
             this.Controls.Add(this.btReset);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
