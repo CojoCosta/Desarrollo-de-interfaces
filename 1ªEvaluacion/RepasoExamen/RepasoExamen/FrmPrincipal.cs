@@ -83,7 +83,6 @@ namespace RepasoExamen
                     e.Cancel = true;
                 }
             }
-            // Si la lista no tiene items sale directamente
             else
             {
                 e.Cancel = false;
@@ -114,6 +113,26 @@ namespace RepasoExamen
         int[] aleatorios;
         private void btnJugar_Click(object sender, EventArgs e)
         {
+            if (contadorChecks != 6)
+            {
+                MessageBox.Show("Usted debe marcar exactamente 6 checkBoxes", "ERROR DE USO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Random random = new Random();
+                int aleatorio = random.Next(1, 50);
+                aleatorios = new int[6];
+                for (int i = 0; i < aleatorios.Length; i++)
+                {
+                    while (aleatorios.Contains(aleatorio))
+                    {
+                        aleatorio = random.Next(1, 50);
+                    }
+                    aleatorios[i] = aleatorio;
+                    lblResultados.Text += $", {aleatorios[i]}";
+                  
+                }
+            }
 
         }
     }
