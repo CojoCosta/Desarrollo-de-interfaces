@@ -48,7 +48,7 @@
             this.acercaDeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(566, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -81,6 +81,7 @@
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
             this.resetToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.resetToolStripMenuItem.Text = "Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.btReset_Click);
             // 
             // separadorToolStripMenuItem
             // 
@@ -102,16 +103,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(245, 27);
+            this.textBox1.Location = new System.Drawing.Point(249, 73);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
+            this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 1;
             // 
             // btReset
             // 
-            this.btReset.Location = new System.Drawing.Point(362, 415);
+            this.btReset.Location = new System.Drawing.Point(249, 264);
             this.btReset.Name = "btReset";
-            this.btReset.Size = new System.Drawing.Size(75, 23);
+            this.btReset.Size = new System.Drawing.Size(121, 39);
             this.btReset.TabIndex = 2;
             this.btReset.Text = "RESET";
             this.btReset.UseVisualStyleBackColor = true;
@@ -121,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(566, 413);
             this.Controls.Add(this.btReset);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);

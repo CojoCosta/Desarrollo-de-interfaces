@@ -88,7 +88,4 @@ namespace Ejercicio5
             textBox1.Text = "";
         }
     }
-
-
 }
-
