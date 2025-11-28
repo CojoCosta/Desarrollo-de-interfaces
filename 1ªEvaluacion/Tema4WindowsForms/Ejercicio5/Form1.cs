@@ -42,7 +42,6 @@ namespace Ejercicio5
                 {
                     boton.Text = "#";
                 }
-                this.Controls.Add(boton);
                 x += 40;
                 if (i % 3 == 0)
                 {
@@ -52,6 +51,8 @@ namespace Ejercicio5
                 boton.MouseDown += Boton_MouseDown;
                 boton.MouseEnter += Boton_MouseEnter;
                 boton.MouseLeave += Boton_MouseLeave;
+                boton.Click += btReset_Click;
+                this.Controls.Add(boton);
             }
         }
         private void Boton_MouseDown(object sender, MouseEventArgs e)
@@ -76,6 +77,7 @@ namespace Ejercicio5
             }
         }
 
+<<<<<<< HEAD
         private void btReset_Click(object sender, EventArgs e)
         {
             foreach (Control control in Controls)
@@ -89,3 +91,36 @@ namespace Ejercicio5
         }
     }
 }
+=======
+
+        private void btReset_Click(object sender, EventArgs e)
+        {
+            if (((Button)sender) == btReset)
+            {
+                textBox1.Text = "";
+                ((Button)sender).BackColor = btoriginal;
+            }
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Programa que simula un teléfono numérico antiguo", "Información de la app", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Seguro que desea salir del programa?", "CERRAR PROGRAMA", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
+    }
+
+}
+
+>>>>>>> b2f16a7cdf34471f56e823e5f83eb57bbb183eb6
