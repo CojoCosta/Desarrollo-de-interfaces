@@ -57,6 +57,7 @@ namespace Ejercicio5
         private void Boton_MouseDown(object sender, MouseEventArgs e)
         {
             ((Button)sender).BackColor = Color.Red;
+            textBox1.Text += ((Button)sender).Text;
         }
 
         private void Boton_MouseEnter(object sender, EventArgs e)
@@ -75,7 +76,17 @@ namespace Ejercicio5
             }
         }
 
-
+        private void btReset_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in Controls)
+            {
+                if (control.BackColor == Color.Red)
+                {
+                    control.BackColor = btoriginal;
+                }
+            }
+            textBox1.Text = "";
+        }
     }
 
 

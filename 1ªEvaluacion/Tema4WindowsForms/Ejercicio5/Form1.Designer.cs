@@ -115,6 +115,7 @@
             this.btReset.TabIndex = 2;
             this.btReset.Text = "RESET";
             this.btReset.UseVisualStyleBackColor = true;
+            this.btReset.Click += new System.EventHandler(this.btReset_Click);
             // 
             // Form1
             // 
