@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace Ejercicio5
     public partial class Form1 : Form
     {
         Color btoriginal;
+        bool close = false;
+        GrabarNumero grabar;
         public Form1()
         {
             InitializeComponent();
@@ -51,7 +54,6 @@ namespace Ejercicio5
                 boton.MouseDown += Boton_MouseDown;
                 boton.MouseEnter += Boton_MouseEnter;
                 boton.MouseLeave += Boton_MouseLeave;
-                boton.Click += btReset_Click;
                 this.Controls.Add(boton);
             }
         }
@@ -99,23 +101,64 @@ namespace Ejercicio5
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            foreach (Control control in Controls)
+            if (close == false)
             {
                 if (MessageBox.Show("Seguro que desea salir del programa?", "CERRAR PROGRAMA", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
                 {
                     e.Cancel = true;
                 }
-
             }
-
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            close = true;
             this.Close();
         }
+
+        private void grabarNúmeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string contactoCompleto = "";
+            StreamWriter sw;
+            GrabarNumero grabar = new GrabarNumero();
+            grabar.Show();
+            grabar.btnAceptar.Click += (sender2, e2) =>
+            {
+                if (textBox1.Text.Trim() != "" && grabar.txtNombre.Text.Trim() != "")
+                {
+                    contactoCompleto = grabar.txtNombre.Text + " : " + textBox1.Text;
+                    MessageBox.Show(contactoCompleto);
+                    using (sw = new StreamWriter("C:\\Pruebas_DI\\ejercicio5_DI.txt"))
+                    {
+                        sw.WriteLine(contactoCompleto);
+                    }
+                    grabar.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Algun textbox está vacio", "No se puede guardar el contacto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
+        }
+
+        private void mostrarAgendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string line;
+            string[] datos = new string[2];
+            Agenda agenda = null;
+            if (agenda == null)
+            {
+                agenda = new Agenda();
+                agenda.Show();
+                StreamReader sr = new StreamReader("C:\\Pruebas_DI\\ejercicio5_DI.txt");
+                line = sr.ReadLine();
+                while (line != null)
+                {
+                    datos = line.Split(':');
+                    agenda.txtAgenda.Text = string.Format($"{datos[0].Trim()}\t{datos[1].Trim()}");
+                    line = sr.ReadLine();
+                }
+            }
+        }
     }
-
 }
-
-

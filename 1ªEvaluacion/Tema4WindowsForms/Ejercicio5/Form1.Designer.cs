@@ -71,12 +71,14 @@
             this.grabarNúmeroToolStripMenuItem.Name = "grabarNúmeroToolStripMenuItem";
             this.grabarNúmeroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.grabarNúmeroToolStripMenuItem.Text = "Grabar número";
+            this.grabarNúmeroToolStripMenuItem.Click += new System.EventHandler(this.grabarNúmeroToolStripMenuItem_Click);
             // 
             // mostrarAgendaToolStripMenuItem
             // 
             this.mostrarAgendaToolStripMenuItem.Name = "mostrarAgendaToolStripMenuItem";
             this.mostrarAgendaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mostrarAgendaToolStripMenuItem.Text = "Mostrar agenda";
+            this.mostrarAgendaToolStripMenuItem.Click += new System.EventHandler(this.mostrarAgendaToolStripMenuItem_Click);
             // 
             // resetToolStripMenuItem
             // 
@@ -107,7 +109,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(248, 67);
+            this.textBox1.Location = new System.Drawing.Point(248, 76);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(118, 20);
@@ -115,7 +117,7 @@
             // 
             // btReset
             // 
-            this.btReset.Location = new System.Drawing.Point(248, 271);
+            this.btReset.Location = new System.Drawing.Point(248, 269);
             this.btReset.Margin = new System.Windows.Forms.Padding(2);
             this.btReset.Name = "btReset";
             this.btReset.Size = new System.Drawing.Size(118, 25);
@@ -134,6 +136,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
