@@ -12,11 +12,12 @@ using System.Windows.Forms;
 namespace Ejercicio5
 {
     public partial class Form1 : Form
-    // Icono titulo ALT shortcuts (listo).
-    // Solo un Form de grabar(listo) y agenda. 
-    // AcceptButton. Añade en la agenda.
-    // Añadir al archivo.
-    // Rutas absolutas.
+    //   titulo  
+    //   agenda si se cierra ya no funciona). 
+    //   excepciones archivo lectura
+    //  )
+    // 
+    // 
     {
         Color btoriginal;
         bool close = false;
@@ -27,6 +28,7 @@ namespace Ejercicio5
         {
             InitializeComponent();
             btoriginal = btReset.BackColor;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -152,7 +154,7 @@ namespace Ejercicio5
                     }
                     catch (FileNotFoundException ex)
                     {
-                        MessageBox.Show("archivo no encontrado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Archivo no encontrado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     grabar.Close();
                 }
@@ -173,15 +175,23 @@ namespace Ejercicio5
             if (agenda == null)
             {
                 agenda = new Agenda();
-                using (sr = new StreamReader($"{ruta}\\ejercicio5_DI.txt"))
+                try
                 {
-                    line = sr.ReadLine();
-                    while (line != null)
+
+                    using (sr = new StreamReader($"{ruta}\\ejercicio5_DI.txt"))
                     {
-                        datos = line.Split(':');
-                        agenda.txtAgenda.Text = string.Format($"{datos[0].Trim()}\t\t{datos[1].Trim()}");
                         line = sr.ReadLine();
+                        while (line != null)
+                        {
+                            datos = line.Split(':');
+                            agenda.txtAgenda.Text += string.Format($"{datos[0].Trim(),-15}{datos[1].Trim(),-15}{System.Environment.NewLine}");
+                            line = sr.ReadLine();
+                        }
                     }
+                }
+                catch (FileNotFoundException ex)
+                {
+                    MessageBox.Show("Archivo no encontrado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 agenda.Show();
             }
