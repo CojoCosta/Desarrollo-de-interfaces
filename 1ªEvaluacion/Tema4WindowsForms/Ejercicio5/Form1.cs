@@ -12,10 +12,17 @@ using System.Windows.Forms;
 namespace Ejercicio5
 {
     public partial class Form1 : Form
+    // Icono titulo ALT shortcuts (listo).
+    // Solo un Form de grabar(listo) y agenda. 
+    // AcceptButton. Añade en la agenda.
+    // Añadir al archivo.
+    // Rutas absolutas.
     {
         Color btoriginal;
         bool close = false;
         GrabarNumero grabar;
+        static string homedrive = Environment.GetEnvironmentVariable("HOMEDRIVE");
+        string ruta = homedrive + "\\Pruebas_DI";
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +31,7 @@ namespace Ejercicio5
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int x = 250;
+            int x = 20;
             int y = 100;
             for (int i = 1; i <= 12; i++)
             {
@@ -48,7 +55,7 @@ namespace Ejercicio5
                 x += 40;
                 if (i % 3 == 0)
                 {
-                    x = 250;
+                    x = 20;
                     y += 40;
                 }
                 boton.MouseDown += Boton_MouseDown;
@@ -95,7 +102,7 @@ namespace Ejercicio5
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Programa que simula un teléfono numérico antiguo", "Información de la app", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Programa que simula un teléfono numérico antiguo realiza por Diego Costa en base a un ejercicio de Curro", "Información de la app", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
@@ -119,18 +126,33 @@ namespace Ejercicio5
         private void grabarNúmeroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string contactoCompleto = "";
+            StreamReader sr;
+            string line = null;
             StreamWriter sw;
             GrabarNumero grabar = new GrabarNumero();
-            grabar.Show();
+            grabar.AcceptButton = grabar.btnAceptar;
             grabar.btnAceptar.Click += (sender2, e2) =>
             {
                 if (textBox1.Text.Trim() != "" && grabar.txtNombre.Text.Trim() != "")
                 {
-                    contactoCompleto = grabar.txtNombre.Text + " : " + textBox1.Text;
-                    MessageBox.Show(contactoCompleto);
-                    using (sw = new StreamWriter("C:\\Pruebas_DI\\ejercicio5_DI.txt"))
+                    if (!Directory.Exists(ruta))
                     {
-                        sw.WriteLine(contactoCompleto);
+                        Directory.CreateDirectory(ruta);
+                    }
+                    try
+                    {
+                        using (sw = new StreamWriter($"{ruta}\\ejercicio5_DI.txt", true))
+                        {
+
+                            contactoCompleto = grabar.txtNombre.Text + " : " + textBox1.Text;
+                            MessageBox.Show(contactoCompleto);
+                            sw.WriteLine(contactoCompleto);
+                        }
+
+                    }
+                    catch (FileNotFoundException ex)
+                    {
+                        MessageBox.Show("archivo no encontrado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     grabar.Close();
                 }
@@ -139,25 +161,29 @@ namespace Ejercicio5
                     MessageBox.Show("Algun textbox está vacio", "No se puede guardar el contacto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             };
+            grabar.ShowDialog();
         }
 
         private void mostrarAgendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string line;
             string[] datos = new string[2];
+            StreamReader sr;
             Agenda agenda = null;
             if (agenda == null)
             {
                 agenda = new Agenda();
-                agenda.Show();
-                StreamReader sr = new StreamReader("C:\\Pruebas_DI\\ejercicio5_DI.txt");
-                line = sr.ReadLine();
-                while (line != null)
+                using (sr = new StreamReader($"{ruta}\\ejercicio5_DI.txt"))
                 {
-                    datos = line.Split(':');
-                    agenda.txtAgenda.Text = string.Format($"{datos[0].Trim()}\t{datos[1].Trim()}");
                     line = sr.ReadLine();
+                    while (line != null)
+                    {
+                        datos = line.Split(':');
+                        agenda.txtAgenda.Text = string.Format($"{datos[0].Trim()}\t\t{datos[1].Trim()}");
+                        line = sr.ReadLine();
+                    }
                 }
+                agenda.Show();
             }
         }
     }
