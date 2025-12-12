@@ -86,7 +86,7 @@ namespace Examen1ªEv
                             y = 10;
                         }
                         lbl = new Label();
-                        lbl.Text = lb.SelectedIndices[i].ToString();
+                        lbl.Text = lb.SelectedItems[i].ToString();
                         lbl.Location = new Point(x, y);
                         panel1.Controls.Add(lbl);
                         y += 30;
