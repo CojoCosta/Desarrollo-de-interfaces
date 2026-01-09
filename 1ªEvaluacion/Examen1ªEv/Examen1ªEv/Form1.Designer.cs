@@ -107,9 +107,9 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(503, 86);
+            this.panel1.Location = new System.Drawing.Point(484, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(285, 199);
+            this.panel1.Size = new System.Drawing.Size(362, 199);
             this.panel1.TabIndex = 5;
             // 
             // timer1
@@ -120,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(871, 453);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtDatos);
