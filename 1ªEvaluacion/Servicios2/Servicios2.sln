@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemaNetworking", "TemaNetwo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServidorHilos", "ServidorHilos\ServidorHilos.csproj", "{5B478E2D-593D-46A8-99B8-CBA0B672B0D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteEco", "ClienteEco\ClienteEco.csproj", "{FBDA8AAD-909E-4262-970E-3B145513402F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5B478E2D-593D-46A8-99B8-CBA0B672B0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B478E2D-593D-46A8-99B8-CBA0B672B0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B478E2D-593D-46A8-99B8-CBA0B672B0D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBDA8AAD-909E-4262-970E-3B145513402F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBDA8AAD-909E-4262-970E-3B145513402F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBDA8AAD-909E-4262-970E-3B145513402F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBDA8AAD-909E-4262-970E-3B145513402F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
