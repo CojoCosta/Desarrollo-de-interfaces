@@ -126,9 +126,6 @@
             this.lista2.Name = "lista2";
             this.lista2.Size = new System.Drawing.Size(109, 82);
             this.lista2.TabIndex = 7;
-            this.ayuda.SetToolTip(this.lista2, "Lista 2 (Selección única)");
-            this.lista2.MouseEnter += new System.EventHandler(this.lista2_MouseEnter);
-            this.lista2.MouseLeave += new System.EventHandler(this.lista2_MouseLeave);
             // 
             // borrar1
             // 

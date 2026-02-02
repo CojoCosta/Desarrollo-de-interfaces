@@ -12,11 +12,13 @@ namespace Ejercicio4
 {
     public partial class Form1 : Form
     {
+        ToolTip tool = new ToolTip();  
         public Form1()
         {
             InitializeComponent();
             AcceptButton = btAñadir;
             timer1.Start();
+            tool.SetToolTip(lista2, $"Hay {lista2.Items.Count} elementos en esta lista");
         }
 
         private void btAñadir_Click(object sender, EventArgs e)
@@ -46,6 +48,8 @@ namespace Ejercicio4
             else if (borrar2.Checked)
             {
                 lista2.Items.Remove(lista2.SelectedItem);
+                tool.SetToolTip(lista2, $"Hay {lista2.Items.Count} elementos en esta lista");
+
             }
         }
 
@@ -59,28 +63,35 @@ namespace Ejercicio4
                     lista1.Items.Remove(lista1.SelectedItem);
                     nElementos.Text = lista1.Items.Count.ToString();
                 }
+                    tool.SetToolTip(lista2, $"Hay {lista2.Items.Count} elementos en esta lista");
 
             }
             else if (traspaso21.Checked)
             {
-                lista1.Items.Add(lista2.SelectedItem);
-                lista2.Items.Remove(lista2.SelectedItem);
+                while (lista2.SelectedItems.Count > 0)
+                {
+                    lista1.Items.Add(lista2.SelectedItem);
+                    lista2.Items.Remove(lista2.SelectedItem);
+                }
             }
         }
 
         private void borrar1_CheckedChanged(object sender, EventArgs e)
         {
             btQuitar.Text = "Elimina de 1";
+
         }
 
         private void borrar2_CheckedChanged(object sender, EventArgs e)
         {
             btQuitar.Text = "Elimina de 2";
+
         }
 
         private void traspaso12_CheckedChanged(object sender, EventArgs e)
         {
             btTraspasar.Text = "Traspaso 1->2";
+
         }
 
         private void traspaso21_CheckedChanged(object sender, EventArgs e)
@@ -112,16 +123,6 @@ namespace Ejercicio4
             {
                 this.Icon = Properties.Resources.instagram_logo_icon_267526;
             }
-        }
-
-        private void lista2_MouseEnter(object sender, EventArgs e)
-        {
-            ayuda.ToolTipTitle =$"{lista2.Items.Count}";
-        }
-
-        private void lista2_MouseLeave(object sender, EventArgs e)
-        {
-            ayuda.ToolTipTitle = "";
         }
     }
 }
